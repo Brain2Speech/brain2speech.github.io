@@ -1,0 +1,18 @@
+collections:
+  people:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: "people"
+    values:
+      layout: "people"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
