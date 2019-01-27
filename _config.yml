@@ -37,4 +37,4 @@ defaults:
       type: "algorithms"
       values:
         layout: "algorithm"
-theme: jekyll-theme-architect
+theme: jekyll-theme-modernist
