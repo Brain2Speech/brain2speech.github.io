@@ -2,7 +2,11 @@
   link: /
 - name: About
   link: /about.html
-- name: Blog
-  link: /blog.html
+- name: Articles
+  link: /articles.html
 - name: People
   link: /people.html
+- name: Dataset
+  link: /datasets.html
+- name: Algorithm
+  link: /algorithms.html

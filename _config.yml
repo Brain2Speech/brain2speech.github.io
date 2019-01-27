@@ -1,7 +1,23 @@
 collections:
+  datasets:
+      output: true
   people:
     output: true
+  article:
+    output: true
+
+
 defaults:
+  - scope:
+      path: ""
+      type: "articles"
+      values:
+        layout: "article"
+  - scope:
+      path: ""
+      type: "datasets"
+      values:
+        layout: "datasets"
   - scope:
       path: ""
       type: "people"
@@ -16,4 +32,9 @@ defaults:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: ""
+      type: "algorithms"
+      values:
+        layout: "algorithm"
 theme: jekyll-theme-architect
