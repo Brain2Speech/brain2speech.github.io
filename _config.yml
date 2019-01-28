@@ -39,4 +39,3 @@ defaults:
       type: "algorithms"
     values:
       layout: "algorithm"
-theme: jekyll-theme-architect
