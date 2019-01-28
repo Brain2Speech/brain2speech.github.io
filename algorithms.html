@@ -7,9 +7,13 @@ title: Algorithms
 <ul>
     {% for algorithm in site.algorithms %}
     <li>
-        <h2><a href="{{ algorithm.url }}">{{ algorithm.name }}</a></h2>
+        <h2><a href="{{ algorithm.url }}">{{ algorithm.title }}</a></h2>
         <h3>{{ algorithm.type }}</h3>
 
     </li>
     {% endfor %}
+
+    <h2><a href="{{ KNN.html }}">{{ KNN }}</a></h2>
+    <h2><a href="KNN.html">KNN</a></h2>
+
 </ul>

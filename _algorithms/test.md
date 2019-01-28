@@ -1,6 +1,5 @@
 ---
-name: algorithmTest
-type: testing
+name: test
+type: test
 ---
-1. a
-2. b
+testing

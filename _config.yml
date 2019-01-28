@@ -5,19 +5,21 @@ collections:
     output: true
   article:
     output: true
+  algorithm:
+    output: true
 
 
 defaults:
   - scope:
       path: ""
       type: "articles"
-      values:
-        layout: "article"
+    values:
+      layout: "article"
   - scope:
       path: ""
       type: "datasets"
-      values:
-        layout: "datasets"
+    values:
+      layout: "datasets"
   - scope:
       path: ""
       type: "people"
@@ -35,6 +37,6 @@ defaults:
   - scope:
       path: ""
       type: "algorithms"
-      values:
-        layout: "algorithm"
+    values:
+      layout: "algorithm"
 theme: jekyll-theme-architect
