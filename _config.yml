@@ -8,7 +8,6 @@ collections:
   algorithm:
     output: true
 
-
 defaults:
   - scope:
       path: ""
@@ -39,3 +38,5 @@ defaults:
       type: "algorithms"
     values:
       layout: "algorithm"
+
+theme: jekyll-theme-Cayman

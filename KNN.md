@@ -2,7 +2,7 @@
 layout: algorithm
 title: KNN
 ---
-<h1> K-Nearest-Neighbout </h1>
+<h1> K-Nearest-Neighbour </h1>
 
 <h2>The K-nearest-neighbour algorithm </h2>
 
@@ -47,7 +47,7 @@ title: KNN
 <script src="https://unpkg.com/thebelab@0.3.3/lib/index.js"></script>
 
 
-<pre data-executable="true" data-language="python">print("Hello!")</pre>
+<pre data-executable="true" data-language="python">print("code will be placed here!")</pre>
 <p>It is static for now. You can activate Thebelab by pressing the button below.
 This will ask <a class="reference external" href="https://mybinder.org">mybinder.org</a> for a Python kernel, and
 turn the code cell into an interactive one with outputs!</p>
