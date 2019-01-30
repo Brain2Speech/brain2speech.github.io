@@ -3,9 +3,9 @@ collections:
       output: true
   people:
     output: true
-  article:
+  articles:
     output: true
-  algorithm:
+  algorithms:
     output: true
 
 defaults:

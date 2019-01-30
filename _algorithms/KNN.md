@@ -1,8 +1,12 @@
 ---
 layout: algorithm
-title: KNN
+title: K-Nearest-Neighbour
+type: EEG Signal Processing 
 ---
-<h1> K-Nearest-Neighbour </h1>
+<link rel="stylesheet" href="C:\Users\irene\Downloads\highlight\styles\default.css">
+<script src="C:\Users\irene\Downloads\highlight\highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 
 <h2>The K-nearest-neighbour algorithm </h2>
 
@@ -21,7 +25,8 @@ title: KNN
 <p> The classifier can be called using the <code> EEG_knn </code> module in the classifiers directory. </p>
 <p>When the module is called, it will first load data with specified features using <code> EEG_feature_extraction.generate_feature_data </code>.</p>
 
- <span style="color:red"> <code> dataset = EEG_feature_extraction.generate_feature_data("s16",20)</code>
+ <pre> <code class = "python"> dataset = EEG_feature_extraction.generate_feature_data("s16",20)</code></pre>
+
   <p> 📌There are no parameters for this module. Users will need to edit the arguments for the code above to specify the data to be loaded </p>
    
    
@@ -48,8 +53,7 @@ title: KNN
 
 
 <pre data-executable="true" data-language="python">print("code will be placed here!")</pre>
-<p>It is static for now. You can activate Thebelab by pressing the button below.
-This will ask <a class="reference external" href="https://mybinder.org">mybinder.org</a> for a Python kernel, and
+nder.org">mybinder.org</a> for a Python kernel, and
 turn the code cell into an interactive one with outputs!</p>
 <p>Try clicking the button. The cell will be come active!</p>
 <button id="activateButton" style="width: 120px; height: 40px; font-size: 1.5em;">Activate</button>

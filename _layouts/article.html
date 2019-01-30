@@ -3,6 +3,8 @@ layout: default
 ---
 {% include navigation.html %}
 <h1>{{ page.title }}</h1>
-<p>{{ page.author }}</p>
+<p>Date Published: {{ page.date }}</p>
+<p>Author: {{ page.author }}</p>
+<p>Link: <a href="{{ page.link }}">{{ page.link }}</a></p>
 
 {{ content }}

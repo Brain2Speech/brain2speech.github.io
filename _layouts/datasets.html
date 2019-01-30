@@ -3,6 +3,7 @@ layout: default
 ---
 {% include navigation.html %}
 <h1>{{ page.name }}</h1>
-<h2>{{ page.type }}</h2>
+<h4>type: {{page.type }}</h4>
+<h4> download: <a href="{{ page.link }}">{{link }}</a></h4>
 
 {{ content }}
