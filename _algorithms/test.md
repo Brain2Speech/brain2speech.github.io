@@ -1,5 +1,7 @@
 ---
-name: test
-type: test
+layout: algorithm
+title: test
+type: test 
 ---
-testing
+
+test
