@@ -1,0 +1,21 @@
+---
+layout: publication
+title: algorithms
+---
+
+<div class="col-lg-12 text-center">
+    <h1 class="section-heading">Algorithms</h1>
+</div>
+
+
+
+<ul>
+    {% for algorithm in site.algorithms %}
+    <li>
+        <h2><a href="{{ algorithm.url }}">{{ algorithm.title }}</a></h2>
+        <p> {{algorithm.type}}}</p>
+    {% endfor %}
+    </li>
+
+</ul>
+\

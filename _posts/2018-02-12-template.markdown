@@ -1,0 +1,15 @@
+---
+title: Template1
+subtitle: Category
+layout: default
+modal-id: 1
+date: 2018-02-12
+thumbnail: dreams-thumbnail.png
+alt: image-alt
+year: 2018
+author: Test
+category: category
+links: ['link1','link2']
+BibTex: bibliography
+description: description of paper 
+---

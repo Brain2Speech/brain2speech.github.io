@@ -1,0 +1,63 @@
+ <!-- Portfolio Modals -->
+ {% for post in site.posts %}
+    <div class="portfolio-modal modal fade" id="{{ post.title }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>{{ post.title }}</h2>
+                            <hr class="star-primary">
+                            <p><strong>Author</strong> {{post.author}}</p>
+                            <ul class="list-inline item-details">
+                               <li>Date
+                                   <strong><a>{{ post.project-date }}</a>
+                                   </strong>
+                               </li>
+                                <li>category
+                                    <strong><a>{{ post.category }}</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <p>{{ post.description }}</p>
+                            <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" href="#links-{{post.title}}" role="button" aria-expanded="false" aria-controls="links">
+                                links
+                            </button>
+
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bibtex-{{post.title}}" aria-expanded="false" aria-controls="bibtex">
+                                Bibtex
+                            </button>
+                            </p>
+
+                            <div class="collapse" id="links-{{post.title}}">
+                                <div class="card card-body">
+                                    {% for id in post.links %}
+                                       <div>
+                                           <a href={{id}}> {{id}}</a>
+                                       </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="collapse" id="bibtex-{{post.title}}">
+                                <div class="card card-body">
+                                    {{post.BibTex}}
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
