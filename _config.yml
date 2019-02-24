@@ -9,56 +9,43 @@ description: "Write an awesome description for your new site here. You can edit 
 
 # Team names, titles and social links
 people:
-- name:
-  pic: 0
+- name: test 1
+  pic: icon
   position:
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
+  email:
+
+
+- name: test 2
+  pic: icon
+  position:
+  email:
+
 
 - name: Sid Fels
-  pic: 0
+  pic: icon
   position: Professor and Lab Director
-  social:
-    - title: Email
-      url: #
-    - title: facebook
-      url: #
-    - title: linkedin
-      url: #
+  email: ssfels@ece.ubc.ca
 
-- name:
-  pic: 0
+
+- name: test3
+  pic: icon
   position:
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: google-plus
-      url: #
+  email:
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket 
-    url: http://bitbucket.org/jekyll
+    url: https://twitter.com/hctlab
+  - title: globe
+    url: http://hct.ece.ubc.ca/
   - title: github
-    url: http://github.com/jekyll
+    url: https://github.com/Brain2Speech
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+  - line: x427/x509, ICICS X-Wing
+  - line: 2366 Main Mall
+  - line: Vancouver, BC Canada V6T 1Z4
 
 # Build settings
 markdown: kramdown
@@ -66,4 +53,6 @@ permalink: none
 
 collections:
   algorithms:
+    output: true
+  datasets:
     output: true

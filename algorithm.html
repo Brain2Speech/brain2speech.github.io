@@ -1,21 +1,29 @@
 ---
 layout: publication
-title: algorithms
+title: Algorithms
 ---
 
-<div class="col-lg-12 text-center">
-    <h1 class="section-heading">Algorithms</h1>
-</div>
 
 
+    <center>
+        <p><br></p>
+<p>Our algorithms are split into 2 main categories: Speech Synthesis and Signal Processing.</p>
+<p>You can learn more about the algorithm that are used in our research and run online examples here!</p>
+    </center>
+
+
+<div class="margin">
 
 <ul>
-    {% for algorithm in site.algorithms %}
+    {% for alg in site.algorithms %}
     <li>
-        <h2><a href="{{ algorithm.url }}">{{ algorithm.title }}</a></h2>
-        <p> {{algorithm.type}}}</p>
+        <h2><a href="{{ alg.url }}">{{ alg.title }}</a></h2>
+        <ul>
+        <li> Type: {{alg.type}}</li>
+        <li> Group: {{alg.group}}</li>
+        </ul>
     {% endfor %}
     </li>
 
 </ul>
-\
+</div>

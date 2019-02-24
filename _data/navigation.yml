@@ -1,0 +1,10 @@
+- name: Home
+  link: /
+- name: Algorithm
+  link: /algorithms.html
+- name: Articles
+  link: /articles.html
+- name: Dataset
+  link: /datasets.html
+- name: People
+  link: /people.html

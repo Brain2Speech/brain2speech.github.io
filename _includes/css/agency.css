@@ -19,7 +19,7 @@ body {
 }
 
 p {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.75;
 }
 
@@ -67,6 +67,14 @@ h6 {
 
 .bg-darkest-gray {
     background-color: #222;
+    margin-left: 100px;
+}
+.margin {
+
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-bottom: 90px;
+    margin-top: 90px;
 }
 
 .btn-primary {
@@ -76,6 +84,15 @@ h6 {
     font-weight: 700;
     color: #fff;
     background-color: #{{ site.data.template.color.primary }};
+}
+
+.btn-primary-2 {
+    border-color: #222;
+text-transform: uppercase;
+font-family: {{ site.data.template.font.primary }};
+font-weight: 700;
+color: #fff;
+background-color: #{{ site.data.template.color.primary }};
 }
 
 .btn-primary:hover,
@@ -172,11 +189,13 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default {
     border-color: transparent;
-    background-color: #222;
+    background-color: #247c63;
 }
 
+
+
 .navbar-default .navbar-brand {
-    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    font-family: "Arial Black", Gadget, sans-serif;
     color: #{{ site.data.template.color.primary }};
 }
 
@@ -197,7 +216,7 @@ fieldset[disabled] .btn-xl.active {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 .navbar-default .navbar-toggle:hover,
@@ -224,7 +243,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default .navbar-nav>.active>a {
     border-radius: 0;
-    color: #fff;
+    color: #ffffff;
     background-color: #{{ site.data.template.color.primary }};
 }
 
@@ -236,9 +255,9 @@ fieldset[disabled] .btn-xl.active {
 
 @media(min-width:768px) {
     .navbar-default {
-        padding: 25px 0;
+        padding: 20px 0;
         border: 0;
-        background-color: transparent;
+        background-color: #247c63;
         -webkit-transition: padding .3s;
         -moz-transition: padding .3s;
         transition: padding .3s;
@@ -257,7 +276,7 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #222;
+        background-color: #247c63;
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
@@ -285,10 +304,9 @@ header .intro-text {
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
-    font-family: {{ site.data.template.font.secondary }};
-    font-size: 22px;
-    font-style: italic;
-    line-height: 22px;
+    font-family: 'Arial Black';
+    font-size: 55px;
+    line-height: 50px;
 }
 
 header .intro-text .intro-heading {
@@ -307,10 +325,10 @@ header .intro-text .intro-heading {
     }
 
     header .intro-text .intro-lead-in {
-        margin-bottom: 25px;
+
+        margin-bottom: 25px
         font-family: {{ site.data.template.font.secondary }};
-        font-size: 40px;
-        font-style: italic;
+        font-size: 40 px
         line-height: 40px;
     }
 
@@ -860,6 +878,9 @@ img::selection {
 
 img::-moz-selection {
     background: 0 0;
+}
+.img-responsive {
+    height:150px;
 }
 
 body {
