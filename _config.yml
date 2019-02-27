@@ -9,6 +9,12 @@ description: "Write an awesome description for your new site here. You can edit 
 
 # Team names, titles and social links
 people:
+
+- name: Sid Fels
+  pic: icon
+  position: Professor and Lab Director
+  email: ssfels@ece.ubc.ca
+
 - name: test 1
   pic: icon
   position:
@@ -19,12 +25,6 @@ people:
   pic: icon
   position:
   email:
-
-
-- name: Sid Fels
-  pic: icon
-  position: Professor and Lab Director
-  email: ssfels@ece.ubc.ca
 
 
 - name: test3
