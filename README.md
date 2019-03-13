@@ -1,30 +1,30 @@
-Agency Jekyll theme
+Brain2Speech
 ====================
 
-Agency theme based on [Agency bootstrap theme ](https://startbootstrap.com/template-overviews/agency/)
+Website for the documentations of the Brain2Speech project by the UBC HCT lab.
 
-# How to use
+# About
+The main focus of the Brain2Speechproject is to by build and evaluate a new method to control an advanced 3D biomechanical articulatory speech synthesis using neural activation-based models. The end goal is to allow users to create speech and voice sounds through a speech synthesizer using advanced EEG signal processing.
 
-###Portfolio 
+##Algorithms
 
-Portfolio projects are in '/_posts'
+Cookbook style tutorials for signal processing and machine learning algorithms used by members of the research team at HCT. 
 
-Images are in '/img/portfolio'
 
-###About
+##Publications
+Journal articles and other documents published for the Brain2Speech project 
 
 Images are in '/img/about/'
 
-###Team
-
-Team members and info are in '_config.yml'
-
-Images are in '/img/team/'
+##Datasets
+Descriptions of collected dataset. 
+Downloads will be available upon request. 
 
 
-# Demo
 
-View this jekyll theme in action [here](https://y7kim.github.io/agency-jekyll-theme)
 
-=========
-For more details, read [documentation](http://jekyllrb.com/)
+###Theme
+Site theme based on jekyll Agency theme 
+[here](https://y7kim.github.io/agency-jekyll-theme)
+
+
