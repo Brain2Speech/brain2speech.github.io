@@ -14,7 +14,7 @@ Cookbook style tutorials for signal processing and machine learning algorithms u
 ## Publications
 Journal articles and other documents published for the Brain2Speech project 
 
-Images are in '/img/about/'
+
 
 ## Datasets
 Descriptions of collected dataset. 
