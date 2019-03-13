@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1a3eff2-2c67-4682-a1c3-dcd188b1e504" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/research_policies.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/terms_and_conditions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_algorithms/KNN.html" beforeDir="false" afterPath="$PROJECT_DIR$/_algorithms/KNN.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/clients.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/clients.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/algorithms/KNN.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/algorithms/KNN.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/algorithms/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/algorithms/test.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/algorithm.html" beforeDir="false" afterPath="$PROJECT_DIR$/algorithm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datasets.html" beforeDir="false" afterPath="$PROJECT_DIR$/datasets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/header_other.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header_other.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/datasets.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+            <state>
+              <caret selection-end-line="1" />
               <folding>
                 <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -70,17 +60,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/header_other.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+            <state relative-caret-position="187">
+              <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_algorithms/KNN.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1779">
-              <caret line="105" column="59" selection-start-line="105" selection-start-column="59" selection-end-line="105" selection-end-column="59" />
+            <state relative-caret-position="517">
+              <caret line="105" column="138" selection-start-line="105" selection-start-column="138" selection-end-line="105" selection-end-column="138" />
             </state>
           </provider>
         </entry>
@@ -197,7 +187,6 @@
         <option value="$PROJECT_DIR$/_algorithms/KNN.md" />
         <option value="$PROJECT_DIR$/_includes/Brain2Speech.html" />
         <option value="$PROJECT_DIR$/_includes/header.html" />
-        <option value="$PROJECT_DIR$/_includes/header_other.html" />
         <option value="$PROJECT_DIR$/_includes/css/agency.css" />
         <option value="$PROJECT_DIR$/publication.html" />
         <option value="$PROJECT_DIR$/_datasets/dataset1.md" />
@@ -212,8 +201,9 @@
         <option value="$PROJECT_DIR$/research_policies.html" />
         <option value="$PROJECT_DIR$/terms_and_conditions.html" />
         <option value="$PROJECT_DIR$/algorithm.html" />
-        <option value="$PROJECT_DIR$/_algorithms/KNN.html" />
         <option value="$PROJECT_DIR$/datasets.html" />
+        <option value="$PROJECT_DIR$/_includes/header_other.html" />
+        <option value="$PROJECT_DIR$/_algorithms/KNN.html" />
       </list>
     </option>
   </component>
@@ -336,18 +326,18 @@
       <workItem from="1551292758365" duration="5260000" />
       <workItem from="1551655436846" duration="11846000" />
       <workItem from="1552403154567" duration="1204000" />
-      <workItem from="1552493173425" duration="4060000" />
+      <workItem from="1552493173425" duration="4361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85149000" />
+    <option name="totallyTimeSpent" value="85450000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="885" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4986631" weight="0.56828886" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4986631" weight="0.5676493" />
       <window_info id="Structure" order="1" sideWeight="0.5013369" side_tool="true" weight="0.37833595" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -642,20 +632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/research_policies.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/header_other.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/terms_and_conditions.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -677,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_algorithms/KNN.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1779">
-          <caret line="105" column="59" selection-start-line="105" selection-start-column="59" selection-end-line="105" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/algorithm.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -693,11 +662,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/datasets.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+        <state>
+          <caret selection-end-line="1" />
           <folding>
             <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/research_policies.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_includes/header_other.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="59" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_algorithms/KNN.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="105" column="138" selection-start-line="105" selection-start-column="138" selection-end-line="105" selection-end-column="138" />
         </state>
       </provider>
     </entry>
