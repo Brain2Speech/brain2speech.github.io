@@ -21,14 +21,28 @@
                     <li>
                         <a class="page-scroll" href="/#Brain2Speech">Brain2Speech</a>
                     </li>
+
+                    {% if page.title== "Algorithms" %}
+                    <li class="active">
+                        <a class="page-scroll active" href="/algorithm.html">Algorithms</a>
+                    </li>
+                    {% else %}
                     <li>
                         <a class="page-scroll" href="/algorithm.html">Algorithms</a>
                     </li>
+                    {% endif %}
+
+                    {% if page.title== "Dataset" %}
+                        <li class = "active">
+                           <a class="page-scroll" href="/datasets.html">Dataset</a>
+                        </li>
+                    {% else %}
+                        <li>
+                           <a class="page-scroll" href="/datasets.html">Dataset</a>
+                        </li>
+                    {% endif %}
                     <li>
-                        <a class="page-scroll" href="/datasets.html">Dataset</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="/#publications">Publications</a>
+                        <a class="page-scroll" href="https://research.hct.ece.ubc.ca/?p=551">Publications</a>
                     </li>
 
                     <li>
@@ -45,13 +59,17 @@
     </nav>
 
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="intro-text">
-                <div class="intro-lead-in">{{page.title}}</div>
-            </div>
-        </div>
-    </header>
+
+
+<div class="container">
+
+
+            <br><br><br><br><br>
+
+                <h1 class="text-center" >{{page.title}}</h1>
+
+</div>
+
 <!--
         {% for page in site.pages %}
           {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
