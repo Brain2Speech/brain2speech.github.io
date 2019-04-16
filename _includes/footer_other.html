@@ -1,0 +1,23 @@
+<footer class="blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <span class="copyright-white">Copyright &copy; {{ site.title }} {{ 'now' | date: "%Y" }}</span>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline social-buttons-white">
+                    {% for network in site.social %}
+                    <li><a href="{{ network.url }}"><i class="fa fa-{{ network.title }}"></i></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="list-inline quicklinks-white">
+                    <li><a  class="white" href="https://github.com/Brain2Speech/Algorithms/blob/master/LICENSE">LICENSE</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

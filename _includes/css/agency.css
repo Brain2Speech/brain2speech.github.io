@@ -616,6 +616,10 @@ footer {
     padding: 25px 0;
     text-align: center;
 }
+.blue{
+    background: rgb(19, 54, 111);
+}
+
 
 footer span.copyright {
     text-transform: uppercase;
@@ -625,6 +629,16 @@ footer span.copyright {
     color: #091C57;
 }
 
+footer span.copyright-white {
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: {{ site.data.template.font.primary }};
+    line-height: 40px;
+    color: #fff;
+}
+.white{
+    color:white;
+}
 footer ul.quicklinks {
     margin-bottom: 0;
     text-transform: uppercase;
@@ -634,6 +648,14 @@ footer ul.quicklinks {
     color: #091C57;
 }
 
+footer ul.quicklinks-white {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-transform: none;
+font-family: {{ site.data.template.font.primary }};
+line-height: 40px;
+color: #fffff;
+}
 ul.social-buttons {
     margin-bottom: 0;
 }
@@ -653,9 +675,30 @@ ul.social-buttons li a {
     transition: all .3s;
 }
 
+ul.social-buttons-white li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: #222;
+    background-color: #fff;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
 ul.social-buttons li a:hover,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:active {
+    background-color: #4655a9;
+}
+
+ul.social-buttons-white li a:hover,
+ul.social-buttons-white li a:focus,
+ul.social-buttons-white li a:active {
     background-color: #4655a9;
 }
 
@@ -691,4 +734,5 @@ img::-moz-selection {
 
 body {
     webkit-tap-highlight-color: #{{ site.data.template.color.primary }};
+
 
