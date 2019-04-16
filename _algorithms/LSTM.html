@@ -1,0 +1,154 @@
+---
+layout: algorithm
+title: Long Short-Term Memory
+type: EEG Signal Processing
+group: KNN, NN, LSTM
+---
+
+<div class="margin">
+    <p>Long Short-Term Memory (LSTM) is a specific recurrent neural network (RNN) architecture designed to model
+    temporal sequences and long-range dependencies more accurately than conventional RNNs.  LSTM networks are well-suited for
+    classifying, processing and making predictions based on time series data. LSTM network has a great potential in processing long
+        time series data and therefore is suitable to use for processing EEG and EMG signals. </p>
+
+    <p>When running the algorithm with specified data sets (with proper subject name and channel number),
+        the algorithm prints on the console for each data set:</p>
+    <ul>
+        <li> Loss </li>
+        <li> Accuracy(%) </li>
+    </ul>
+
+
+    <p>And at the end prints a list of accuracy (%) for all data sets evaluated</p>
+
+    <p>  <br>  </p>
+
+
+
+   <h2>Implementation </h2>
+
+
+    <p>The classifier can be called using the
+        <code>EEG_ lstm </code> module in the classifiers directory. </p>
+
+
+    <p>When the module is called, it will first load data sets within the specified range
+        ( and the specified features) using <code>EEG_load.load_data</code></p>
+
+    <pre> <code class = "python">for channel_number in range(1,67):
+        dataset = EEG_load.load_data("s16",channel_number) </code></pre>
+
+
+    <p>
+        📌 The module can load data sets for multiple channel numbers with
+        the same subject name</p>
+
+    <p> 📌 There are no parameters for this module.
+        Users will need to edit the arguments for the code above
+        to specify the data to be loaded
+
+    </p>
+    <p>
+        📌 For more information on
+        how to name and load data save as CSV files see EEG_load
+    </p>
+
+    <p>
+        For each data set in the desired range,
+        the algorithm calculates the test loss and the accuracy of each data set.
+
+    </p>
+    <p>
+        Finally, the module prints a list of the accuracies
+        for all the data sets in order of the channel numbers.
+    </p>
+    <p>  <br> </p>
+    <h2>Try Running the Code! </h2>
+
+    <script type="text/x-thebe-config">
+  {
+    requestKernel: true,
+    binderOptions: {
+      repo: "Brain2Speech/Algorithms-ipython-",
+    },
+  }
+</script>
+    <script type="text/javascript"
+            src="https://unpkg.com/thebelab@^0.4.0">
+    </script>
+
+<pre data-executable="true" data-language="python">
+%matplotlib inline
+import warnings
+warnings.filterwarnings('ignore')
+
+ # use CNN(ConvNet)
+from keras.models import Sequential
+from keras.layers import Dense,Activation,LSTM,Dropout
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+from knn_nn_lstm.tools import utils, EEG_feature_extraction
+from knn_nn_lstm.classifiers import EEG_load
+
+result=[]
+
+for channel_number in range(20,21):
+
+	dataset = EEG_load.load_data("s05",channel_number)
+
+	X = dataset['X_train']
+	y = dataset['Y_train']
+	Xtest = dataset['X_test']
+	ytest = dataset['Y_test']
+
+	X = np.reshape(X, (X.shape[0], 1, X.shape[1]))
+	Xtest = np.reshape(Xtest, (Xtest.shape[0], 1, Xtest.shape[1]))
+
+	# 1.define a model (network)
+	model = Sequential()
+
+	model.add(LSTM(32, input_shape=(X.shape[1], X.shape[2])))
+	model.add(Dense(1, activation='sigmoid'))
+
+	# 2.compile network
+	model.compile(loss='binary_crossentropy', optimizer='rmsprop', metrics=['accuracy'])
+
+	# 3.fit network (train)
+	history = model.fit(X, y, nb_epoch = 100, batch_size = None)
+
+	# 4.evaluate network
+	loss, accuracy = model.evaluate(Xtest,ytest)
+	print("\nLoss: %.2f, Accuracy: %.2f%%" % (loss, accuracy * 100))
+
+	result.append(float(round(accuracy*100,2)))
+
+for i in result:
+	print(i)
+
+    </pre>
+
+    <p>Try clicking the button. The cell will be come active!</p>
+    <button id="activateButton" style="width: 120px; height: 40px; font-size: 1.5em;">Activate</button>
+
+    <script>
+        var bootstrapThebe = function() {
+            thebelab.bootstrap();
+        }
+        document.querySelector("#activateButton").addEventListener('click', bootstrapThebe)
+    </script>
+
+    <p>  <br> </p>
+
+    <h2> Download </h2>
+
+    <p>Go to our GitHub page to <a class="light-blue" href="https://github.com/Brain2Speech/Algorithms-/tree/master/KNN%2C%20NN%2C%20LSTM">download</a> the code</p>
+    <p>By downloading our algorithms, you have read our <a class="light-blue" href="/research_policies.html">research policies </a>
+        and agreed to our <a class="light-blue" href="/terms_and_conditions.html">terms of use </a> </p>
+
+
+
+
+</div>
+
+

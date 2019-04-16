@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>K-Nearest-Neighbour</title>
     <meta name="viewport" content="width=device-width">
-    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+    <meta name="description" content="">
     <link rel="canonical" href="http://localhost:4000/algorithms/KNN.html">
     <link rel="icon" href="img/brain2.jpg">
 
@@ -106,6 +106,8 @@
         
           <a class="page-link" href="/research_policies.html">Research Policies</a>
         
+          <a class="page-link" href="/setup.html">Getting Started</a>
+        
           
         
           <a class="page-link" href="/terms_and_conditions.html">Terms of Use</a>
@@ -133,18 +135,19 @@
 
 <p >This module is an implementation of the K-nearest neighbours (kNN) machine learning algorithm for classification. In this designed kNN model, the input signals were the original EEG signal without normalization. </p>
 <p>A kNN algorithm classifies and object based on its neighbours. An object is assigned to the class most common to k numbers of its nearest neighbours. For example if k is 3, the object is assigned to the class that is most common to 3 of its neighbours with smallest Euclidean distance to the object.  </p>
-<p> When running the algorithm with data set (with proper subject name and channel number), the algorithm will print on the console
+    <p> When running the algorithm with data set (with proper subject name and channel number), the algorithm will print on the console</p>
 
 <ul>
     <li> Current training error </li>
     <li> Current test error </li>
 </ul>
 
-And saves a 2D scatter plot of the result in a png file </p>
+    <p> And saves a 2D scatter plot of the result in a png file </p>
 
-    <p>  <br> <br> </p>
+    <p>  <br>  </p>
 
 <h2>Implementation </h2>
+
 <p> The classifier can be called using the <code> EEG_knn </code> module in the classifiers directory. </p>
 <p>When the module is called, it will first load data with specified features using <code> EEG_feature_extraction.generate_feature_data </code>.</p>
 
@@ -157,18 +160,19 @@ And saves a 2D scatter plot of the result in a png file </p>
 
 <p> 📌 Currently, the plot is saved under the name "s16-c20-mean.png" as this is the default example for the demo code. Users can change the figure name and also the path for where to save the plot.</p>
 
-    <p>  <br> <br> </p>
+    <p>  <br>  </p>
 
 <h2>Try Running the Code! </h2>
 <script type="text/x-thebe-config">
   {
     requestKernel: true,
     binderOptions: {
-      repo: "Brain2Speech/Algorithms-",
+      repo: "Brain2Speech/Algorithms-ipython-",
     },
   }
 </script>
-<script src="https://unpkg.com/thebelab@0.3.3/lib/index.js"></script>
+    <script type="text/javascript"
+            src="https://unpkg.com/thebelab@^0.4.0"></script>
 
 
 <pre data-executable="true" data-language="python">
@@ -223,11 +227,13 @@ plt.show()
     document.querySelector("#activateButton").addEventListener('click', bootstrapThebe)
 </script>
 
-    <p>  <br> <br> </p>
+    <p>  <br>  </p>
 
     <h2> Download </h2>
-    <p>Go to our GitHub page to <a href="https://github.com/Brain2Speech/Algorithms-/tree/master/KNN%2C%20NN%2C%20LSTM">download</a> the code</p>
-    By downloading our algorithms, you have read our <a href="/research_policies.html">research policies </a> and agreed to our <a href="/terms_and_conditions.html">terms of use </a> </p>
+
+    <p>Go to our GitHub page to <a class="light-blue" href="https://github.com/Brain2Speech/Algorithms-/tree/master/KNN%2C%20NN%2C%20LSTM">download</a> the code</p>
+    <p>By downloading our algorithms, you have read our <a class="light-blue" href="/research_policies.html">research policies </a>
+    and agreed to our <a class="light-blue" href="/terms_and_conditions.html">terms of use </a> </p>
 
 
 
