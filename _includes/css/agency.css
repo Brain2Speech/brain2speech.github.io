@@ -686,6 +686,7 @@ img::-moz-selection {
 }
 .img-responsive {
     height:150px;
+    width: 150px;
 }
 
 body {

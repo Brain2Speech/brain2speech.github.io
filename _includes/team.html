@@ -1,5 +1,5 @@
 <!-- Team Section -->
-    <section id="team" class="bg-light-gray1 >
+    <section id="team" class="bg-light-gray1" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -8,14 +8,28 @@
             </div>
             <div class="row">
                 {% for member in site.people %}
-                <div class="col-sm-3">
+                <div class="col-lg-4 pull-left">
                     <div class="team-member">
-                        <img src="img/team/{{ member.pic }}.jpg" class="img-responsive img-circle" alt="">
+                        <img src="/img/team/{{ member.pic }}.jpg" class=" img-circle" alt="">
                         <h4>{{ member.name }}</h4>
-                        <p class="text-muted">{{ member.position }}</p>
-                        <p class="text-muted"> <span class="fa-stack fa-x">
+                        <p class="text-muted">{{ member.position }}
+                            <br>
+                            <span class="fa-stack fa-x">
                         <i class="fa fa-envelope"></i>
                     </span> {{ member.email }}</p>
+
+                        <ul class="list-inline social-buttons">
+                            {% for network in member.social %}
+                            <li>
+                                <a href="{{ network.url }}">
+                                    <i class="fa fa-{{ network.title }}"></i>
+                                </a>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+
+
                     </div>
                 </div>
                 {% endfor %}

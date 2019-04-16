@@ -13,24 +13,46 @@ people:
   pic: icon
   position: Professor and Lab Director
   email: ssfels@ece.ubc.ca
+  social:
+  -  title: globe
+     url: http://hct.ece.ubc.ca/person/sid-fels/
 
-- name: test 1
+
+- name: Debasish Ray Mohapatra
   pic: icon
-  position:
-  email:
+  position: MASc Student
+  email: d.mohapatra@alumni.ubc.ca
+  social:
+    - title: github
+      url:
 
 
-- name: test 2
+
+- name: Praneeth SV
   pic: icon
-  position:
-  email:
+  position: MASc Student
+  email: praneethsv@ece.ubc.ca
+  social:
+    - title: github
+      url:
 
 
-- name: test3
+
+- name: Pramit Saha
   pic: icon
-  position:
-  email:
+  position: MASc Studennt
+  email: pramitsaha.juee@gmail.com
+  social:
+  - title: github
+    url:
 
+- name: Irene Wang
+  pic: icon
+  position: Website Coordinator
+  email: irene.wang.05@alumni.ubc.ca
+  social:
+  - title: github
+    url: https://github.com/iwang05
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
   - title: twitter
