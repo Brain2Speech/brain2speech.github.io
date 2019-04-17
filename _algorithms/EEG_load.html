@@ -1,0 +1,166 @@
+---
+layout: algorithm
+title: EEG_load
+type: EEG Signal Processing
+group: KNN, NN, LSTM
+---
+
+<div class="margin">
+<p>
+This module is used to load the data sets when processing signals using one of the classifiers.
+</p><p>
+When loading the data sets, users can also apply pre-processing tools such as normalization, or Butterworth filters to the signals.
+</p><p>
+This module includes the following pre-processing functions:</p>
+<ul>
+    <li>Standardization</li>
+    <li>Normalization</li>
+</ul>
+
+ <p>In our implementation, the EEG_load.load_data function is
+     set to process data sets that are compatible with the
+     following classifiers implemented in the toolkit:</p>
+    <ul>
+        <li><a href ="/algorithms/LSTM.html">Long-Short Term Memory (LSTM)</a></li>
+        <li><a href ="/algorithms/NN.html">Neural Network (EEG_nn)</a></li>
+    </ul>
+
+
+    <h2>Implementation </h2>
+
+    <br>
+    <h4>Normalization and Scaling</h4>
+    <p>The module includes 2 helper functions: <code>standardization</code>
+        and <code>normalization</code>. These functions are for scaling and normalizing the data</p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#standardization" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ standardization (signal)
+    </button>
+
+    <div class="collapse" id="standardization">
+        <div class="card card-body">
+            <p><br>Standardize the signal to zero mean and unit variance</p>
+            <p>📌 same function included in module EEG_feature_extraction</p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>processed signal </li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+                def standarization(signal):
+                return preprocessing.scale(signal)
+                </code></pre>
+
+        </div>
+    </div>
+<p><br></p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#normalization" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ normalization (data,a,b)
+    </button>
+
+
+
+
+    <div class="collapse" id="normalization">
+        <div class="card card-body">
+            <p><br>Normalize the signal to scale[a,b]
+
+               <br> 📌 same function included in module EEG_feature_extraction</p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+                <li>a : lower end of scale</li>
+                <li>b : upper end of scale</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>processed signal </li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+               def nomalization(data,a,b):
+                #data is a ndarray
+                max_diff = max(data) - min(data)
+                diff = data - min(data)
+                return a+((b-a)*diff/max_diff)
+                </code></pre>
+
+        </div>
+    </div>
+    <p><br></p>
+    <h4>load_data (subject_name, channel_number)</h4>
+    <p></p>
+
+    <p><u>Parameters</u></p>
+    <ul>
+        <li>subject_name</li>
+        <li>channel_number</li>
+    </ul>
+
+    <p><u>Returns</u></p>
+    <ul>
+        <li>Training and testing arrays: X_test, X_train, Y_test, and Y_train </li>
+
+    </ul>
+
+
+    <p><code>load_data</code> can be called by classifiers to load
+        the data sets. The function takes the subject name and channel_number
+        as inputs and returns training and testing sets. </p>
+
+    <p>The function assumes that datasets are CSV files named
+        in the format of: </p>
+    <h5>"subject_name +"_channel" + channel_number".</h5>
+    <p>📌 Please make sure to change <code>data_dir</code> to the correct path for where your data sets are saved.</p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#example" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ example
+    </button>
+
+    <div class="collapse" id="example">
+        <div class="card card-body">
+            <p>if <code>subject_name</code> = s16, and <code>channel_number</code> = 20.
+            The path of the file should be of "data_dir/s16/s16_channel20.csv".</p>
+
+        </div>
+    </div>
+
+
+   <p><br> You can apply other pre-processing algorithms (your own or the
+    ones provided in EEG_feature_extraction) to the signals before being
+    passed to the classifiers.  The snippet of code
+    below shows how each pre-processing tools can be applied to the signals</p>
+
+    <pre><code class="python">
+        for i in range(X.shape[0]):
+		#X[i] = EEG_feature_extraction.EEG_filter_band(X[i])['theta']
+		#X[i] = EEG_feature_extraction.EEG_filter_band(X[i])['alpha']
+		#X[i] = EEG_feature_extraction.EEG_filter_band(X[i])['beta1']
+		#X[i] = EEG_feature_extraction.EEG_filter_band(X[i])['beta2']
+		#X[i] = EEG_feature_extraction.EEG_filter_band(X[i])['gamma1']
+		#X[i] = EEG_feature_extraction.EEG_filter_band(X[i])['gamma2']
+		#X[i] = EEG_feature_extraction.EEG_lowpass(X[i])
+
+		#X_cut[i] = standarization(X_cut[i])
+		#X_cut[i] = nomalization(X_cut[i],-1,1)
+		#X[i] = EEG_feature_extraction.EEG_bandstop(X[i])
+
+		X[i] = standarization(X[i])
+		X[i] = nomalization(X[i], -1, 1)
+
+    </code></pre>
+
+    <p><br></p>
+    <h2> Download </h2>
+
+    <p>Go to our GitHub page to <a class="light-blue" href="https://github.com/Brain2Speech/Algorithms/tree/master/knn_nn_lstm">download</a> the code</p>
+
+
+
+</div>

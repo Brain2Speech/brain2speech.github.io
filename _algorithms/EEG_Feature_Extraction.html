@@ -1,0 +1,435 @@
+---
+layout: algorithm
+title: EEG Feature Extraction
+type: EEG Signal Processing
+group: KNN, NN, LSTM
+---
+<div class="margin">
+    <p>
+        This module includes functions for the
+        following pre-processing EEG signals:
+    </p>
+    <ul>
+        <li>Butterworth filter </li>
+        <li>Hilbert Transformation</li>
+        <li>Normalization and Scaling</li>
+        <li>Kurtosis</li>
+        <li>Skewness</li>
+    </ul>
+
+    <p>It also has functions for:</p>
+    <ul>
+        <li>
+            Feature extraction and load data
+        </li>
+    </ul>
+
+
+    <h2>Implementation </h2>
+
+   <br>
+
+    <h4> Filter</h4>
+
+    <p>Different filters can be applied to the EEG signal for filtering out
+        irrelevant information a nd separate the signals to different frequency
+        bands (e.g. alpha waves)</p>
+
+    <p>There are 4 types of Butterworth filters with adjustable frequency bands.
+        The default order for these filters are set to 5. Parameters include an N-dimensional
+    array to be processed, frequency cutoff, sampling frequency and order.</p>
+
+    <ul>
+        <li>
+            butter_lowpass_filter(data,cutoff,fs,order=5)
+        </li>
+        <li>
+            butter_highpass_filter(data,cutoff,fs,order=5)
+        </li>
+        <li>
+            butter_bandpass_filter(data,lowcut,highcut,fs,order=5)
+        </li>
+        <li>
+            butter_bandstop_filter(data,lowcut,highcut,fs,order=5)
+        </li>
+    </ul>
+
+    <p>A 30Hz low-pass filter, and a 54_66Hz band-stop filter can be used
+        to filter out irrelevant information</p>
+
+    <ul>
+        <li>
+            EEG low pass (30Hz filter keeping main information only)
+        </li>
+        <li>
+            EEG band stop ( 55 to 66Hz band-stop filter removing the 60Hz big line noise)
+        </li>
+    </ul>
+
+    <p>Multiple band-pass filters are used to separate EEG signals to
+        different frequency bands such as alpha, beta and gamma waves
+    <br>
+        EEG_filter_band (signal, fs=1024) takes in an EEG signal ( recommend use
+        after removing mean value and other noise filtering methods) and returns a dictionary
+        including 6 frequency band EEG signal.
+        <br>
+    </p>
+
+    <p><br></p>
+    <h4>Hilbert Transformation</h4>
+    <p>The function can be applied to obtain a strong analytic signal.
+        The signal will be represented with an amplitude and a phase
+        where the derivative of the phase is the instantaneous frequency. </p>
+    <p>The hilbert function takes in a 1 by N array EEG signal and returns the
+        amplitude envelope of Hilbert analytical signal</p>
+
+    <p><br></p>
+    <h4>Normalization and Scaling</h4>
+    <p>The module includes 2 helper functions: <code>standardization</code>
+        and <code>normalization</code>. These functions are for scaling and normalizing the data</p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#standardization" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ standardization (signal)
+    </button>
+
+    <div class="collapse" id="standardization">
+        <div class="card card-body">
+            <p><br>Standardize the signal to zero mean and unit variance</p>
+            <p>📌 same function included in module EEG_feature_extraction</p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>processed signal </li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+                def standarization(signal):
+                return preprocessing.scale(signal)
+                </code></pre>
+
+        </div>
+    </div>
+    <p><br></p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#normalization" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ normalization (data,a,b)
+    </button>
+
+
+    <div class="collapse" id="normalization">
+        <div class="card card-body">
+            <p><br>Normalize the signal to scale[a,b]
+
+                <br> 📌 same function included in module EEG_feature_extraction</p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+                <li>a : lower end of scale</li>
+                <li>b : upper end of scale</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>processed signal </li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+               def nomalization(data,a,b):
+                #data is a ndarray
+                max_diff = max(data) - min(data)
+                diff = data - min(data)
+                return a+((b-a)*diff/max_diff)
+                </code></pre>
+
+        </div>
+    </div>
+    <p><br></p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#zero" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ zero_mean (signal)
+    </button>
+
+
+    <div class="collapse" id="zero">
+        <div class="card card-body">
+            <p><br>Removes the mean value form signals for central tendency
+
+               </p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>processed signal </li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+               def zero_mean(signal):
+                    # signal is EEG signal (a vector)
+                    return signal - np.mean(signal)
+                </code></pre>
+
+        </div>
+    </div>
+    <p><br></p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#mean" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ zero_mean (signal)
+    </button>
+
+
+    <div class="collapse" id="mean">
+        <div class="card card-body">
+            <p><br>Calculates the mean value of the signal segment
+
+            </p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>mean value</li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+               def EEG_mean(signal):
+                     return np.mean(signal)
+                </code></pre>
+
+        </div>
+    </div>
+
+    <p><br></p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#std" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ zero_std (signal)
+    </button>
+
+
+    <div class="collapse" id="std">
+        <div class="card card-body">
+            <p><br>Calculate the standard deviation value of signal segment
+
+            </p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>standard deviation value</li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+               def EEG_std(signal):
+	                return np.std(signal)
+                </code></pre>
+
+        </div>
+    </div>
+
+
+    <p><br><br></p>
+
+    <h4>Kurtosis</h4>
+    <p>Is a Measurement of peakedness of the probability distribution.
+        Can be simply defined as the sharpness of the peak of a
+        frequency-distribution curve.</p>
+
+    <p><br></p>
+    <h4>Skewness</h4>
+    <p>Skewness is the measurement of the distortion of a curve
+        ( to the left or to the right) for a statistical distribution.</p>
+
+
+    <p><br></p>
+    <h4> Feature Extraction and Load Data</h4>
+
+    <p>These functions allow you to customize the features to extract from the
+        EEG signals and load to data to be used by the classifiers. </p>
+
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#fe" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ Feature_extraction (signal, fs = 1024)
+    </button>
+
+
+    <div class="collapse" id="fe">
+        <div class="card card-body">
+            <p><br>Reads input EEG signal and extracts the feature-vectors.
+                You can customize the features that you want to extract.
+
+            </p>
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>signal: EEG signal to be processed (1 by N array)</li>
+                <li>fs : sampling frequency (default = 1024Hz)</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>Feature: a numpy row vector of calculated features</li>
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+               def Feature_Extraction(signal, fs = 1024):
+
+                    #Mean
+                    #sig_mean = np.mean(signal)
+
+                    #STD - standard deviation
+                    #sig_std = np.std(signal)
+
+                    # If we normalize the signal to zero mean and unit variance,
+                    # then we do not need to compute these two features
+
+                    # Signal Power (after standarization ! otherwise the value will be too big)
+                    # sig_power = np.mean(np.square(signal))
+
+                    #Kurtosis
+                    Kseg = scipy.stats.kurtosis(signal,bias=False)
+
+                    #Skewness
+                    Sseg = scipy.stats.skew(signal,bias=False)
+
+                    Feature = np.array([Kseg, Sseg])
+                    #Feature = np.array([sig_mean, sig_std])
+
+                    return Feature
+                </code></pre>
+
+        </div>
+    </div>
+
+    <p><br></p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" href="#gfd" role="button" aria-expanded="false" aria-controls="stand">
+        ▶️ generate_feature_data (subject_name, channel_number)
+    </button>
+
+
+    <div class="collapse" id="gfd">
+        <div class="card card-body">
+            <p><br>Reads from a csv file and load data with desired features
+                extracted. You can apply other pre-processing algorithms
+                (your own or the ones in EEG_feature_extraction).
+
+            </p>
+            <p>The function assumes that datasets are CSV files named in the
+                format of </p>
+
+            <h5>"subject_name +"_channel" + channel_number"</h5>
+
+            <p>📌 Please make sure to change data_dir to the correct path
+                for where your data sets are saved.  </p>
+            <p>📌 For more details on how to name the dataset see the description for the <a class="light-blue" href ="/algorithms/EEG_load.html">EEG_load</a> function, which has a similar functionality.
+                 </p>
+            <p>📌 In our implementation, this function is set to process data sets that are
+                compatible with the following classifiers implemented in the toolkit:</p>
+
+            <ul>
+                <li><a href ="/algorithms/KNN.html">K-nearest-neighbour (kNN)</a></li>
+            </ul>
+
+            <p><u>Parameters</u></p>
+            <ul>
+                <li>subject_name</li>
+                <li>channel_number</li>
+            </ul>
+
+            <p><u>Returns</u></p>
+            <ul>
+                <li>Training and testing arrays: X_test, X_train, Y_test, and Y_train </li>
+
+            </ul>
+
+            <p><u>Code</u></p>
+            <pre><code class = "python">
+              def generate_feature_data(subject_name, channel_number):
+                    data_dir = "data/"+subject_name+"/"+subject_name+"_channel"
+
+                    # only use one channel data
+                    data = pd.read_csv(data_dir+str(channel_number)+".csv")
+
+                    # read data from all channel (1-66)
+                    #for j in range(2,67):
+                    #	new_data = pd.read_csv(data_dir + str(j) +".csv")
+                    #	data = pd.concat([data, new_data], axis=1)
+
+
+                    data_T = data.T
+                    #the last column are the labels (0-letter; 1-pseudo-letter)
+
+                    nrow = data_T.shape[0]
+                    ncol = data_T.shape[1]
+
+                    #the first line (row) should be discarded (get [1:231] lines)
+                    data_trim = data_T[1:nrow]
+
+                    X = data_trim.drop(ncol-1,axis=1)
+                    Y = data_trim[[ncol-1]]
+
+                    X=np.array(X)
+                    Y=np.array(Y)
+
+                    X_feature = list()
+
+                    X_cut = X[:, 512:872]
+
+                    #normalization and band filtering
+                    for i in range(X.shape[0]):
+                        #X[i] = EEG_filter_band(X[i])['theta']
+                        #X[i] = EEG_filter_band(X[i])['alpha']
+                        #X[i] = EEG_filter_band(X[i])['beta1']
+                        #X[i] = EEG_filter_band(X[i])['beta2']
+                        #X[i] = EEG_filter_band(X[i])['gamma1']
+                        #X[i] = EEG_filter_band(X[i])['gamma2']
+                        #X_cut[i] = standardization(X_cut[i])
+                        #X_cut[i] = normalization(X_cut[i], -1, 1)
+                        X_feature.append(Feature_Extraction(X_cut[i]))
+
+                    X = np.array(X_feature)
+                    # convert data to feature vectors (N * 2 numpy array)
+
+                    # disorganize the data to split to training and testing set
+                    index = [i for i in range(len(X))]
+                    random.shuffle(index)
+                    X = X[index]
+                    Y = Y[index]
+
+                    num_train = round(0.8 * X.shape[0])
+
+                    X_train = X[0 : (num_train-1)]
+                    Y_train = Y[0 : (num_train-1)]
+                    X_test = X[num_train : (X.shape[0]-1)]
+                    Y_test = Y[num_train : (X.shape[0]-1)]
+
+                    return {"X_train":X_train, "Y_train": Y_train,"X_test": X_test, "Y_test": Y_test}
+                </code></pre>
+
+        </div>
+    </div>
+
+
+   <p><br></p>
+    <h2> Download </h2>
+
+    <p>Go to our GitHub page to <a class="light-blue" href="https://github.com/Brain2Speech/Algorithms/tree/master/knn_nn_lstm">download</a> the code</p>
+
+
+
+
+
+
+
+
+</div>
+
