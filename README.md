@@ -1,30 +1,15 @@
-Brain2Speech
-====================
+# Brain2Speech
 
-Website for the documentations of the Brain2Speech project by the UBC HCT lab.
+Site for the Brain2Speech project at UBC's Human Communication Technologies (HCT) Lab.
 
-# About
-The main focus of the Brain2Speechproject is to by build and evaluate a new method to control an advanced 3D biomechanical articulatory speech synthesis using neural activation-based models. The end goal is to allow users to create speech and voice sounds through a speech synthesizer using advanced EEG signal processing.
+## About
 
-## Algorithms
-
-Cookbook style tutorials for signal processing and machine learning algorithms used by members of the research team at HCT. 
-
-
-## Publications
-Journal articles and other documents published for the Brain2Speech project 
-
-
+The Brain2Speech project seeks to build and validate new methods for advanced speech synthesis and control using neural activation-based models and 3D biomechanical articulators.
 
 ## Datasets
-Descriptions of collected dataset. 
-Downloads will be available upon request. 
 
+Downloads are available upon request.
 
+## Links
 
-
-### Theme
-Site theme based on jekyll Agency theme 
-[here](https://y7kim.github.io/agency-jekyll-theme)
-
-
+- [BibTeX-js](https://github.com/digitalheir/bibtex-js)

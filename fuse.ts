@@ -9,7 +9,7 @@ class Context {
       webIndex: {
         template: "src/index.html"
       },
-      cache : true,
+      cache: true,
       devServer: this.runServer
     });
 }
