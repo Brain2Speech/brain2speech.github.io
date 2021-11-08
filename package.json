@@ -1,7 +1,7 @@
 {
   "name": "Brain2Speech",
   "author": "Eric Easthope, eric.easthope@me.com, @ericeasthope",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "dev": "ts-node -T fuse",
@@ -9,6 +9,7 @@
     "preview": "ts-node -T fuse preview"
   },
   "dependencies": {
+    "bibtex": "^0.9.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
