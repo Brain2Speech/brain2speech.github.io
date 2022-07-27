@@ -6,6 +6,7 @@ import "index.scss";
 import { parseBibFile, normalizeFieldValue } from "bibtex";
 import bib from "../data/refs.txt";
 import bios from "../data/bios.json";
+import landing from "../data/brain-lips.png";
 
 const bibFile = parseBibFile(bib);
 
@@ -20,7 +21,7 @@ const Application = () => {
     body.onscroll = e => {
       //stackoverflow.com/a/14384091
       let top = window.pageYOffset || document.documentElement.scrollTop;
-      console.log(top);
+      // console.log(top);
     };
   }, []);
 
@@ -33,8 +34,8 @@ const Application = () => {
         <ScrollButton name="Contact" />
       </header>
       <main>
+        <img className="logo" src={landing} alt="Brain-to-speech landing image" />
         <h1>Brain2Speech</h1>
-        <img alt="Brain-to-speech landing image" />
         <h2>Project</h2>
         <p>
           The Brain2Speech project seeks to build and validate new methods for
@@ -88,6 +89,7 @@ const ScrollButton = ({ name }) => {
             // console.log(headers[i].getBoundingClientRect());
 
             // Compute top coordinate of header element
+            /*
             let y = headers[i].getBoundingClientRect().top;
             console.log(y);
 
@@ -96,7 +98,12 @@ const ScrollButton = ({ name }) => {
               headers[i].currentStyle || window.getComputedStyle(headers[i]);
             let marginTop = parseInt(style.marginTop);
 
-            window.scrollTo(0, y - 64 - marginTop);
+            const scrollTo = y - 64 - marginTop;
+            // window.scrollTo(0, scrollTo);
+            console.log(scrollTo);
+            */
+
+            headers[i].scrollIntoView(true);
             break;
           }
         }
