@@ -9,7 +9,8 @@
     "preview": "ts-node -T fuse preview"
   },
   "dependencies": {
-    "bibtex": "^0.9.0",
+    "@orcid/bibtex-parse-js": "^0.0.25",
+    "js-yaml": "^4.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

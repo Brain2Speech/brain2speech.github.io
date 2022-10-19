@@ -1,117 +1,165 @@
 //
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "index.scss";
+import "./index.scss";
 
-import { parseBibFile, normalizeFieldValue } from "bibtex";
-import bib from "../data/refs.txt";
-import bios from "../data/bios.json";
-import landing from "../data/brain-lips.png";
+// import banner from "./images/banner.png";
+import ubc from "./images/ubc.png";
 
-const bibFile = parseBibFile(bib);
+import yaml from "js-yaml";
+import people from "./data/people.yaml";
+import research from "./data/research.yaml";
 
-const Application = () => {
-  React.useEffect(() => {
-    console.log(bibFile.entries$);
-    console.log(bibFile.entries$.realscience.type);
-    console.log(bibFile.entries$.realscience.fields);
-    console.log(bibFile.entries$.realscience.fields.author.authors$);
+import bibtexParse from "@orcid/bibtex-parse-js";
+import refs from "./data/refs.bib";
 
-    const body = document.getElementsByTagName("body")[0];
-    body.onscroll = e => {
-      //stackoverflow.com/a/14384091
-      let top = window.pageYOffset || document.documentElement.scrollTop;
-      // console.log(top);
-    };
-  }, []);
+const authors = ["Mohapatra", "Gick", "Shamei", "Liu", "Easthope", "Gao"];
 
-  return (
-    <div className="Application">
-      <header className="Header">
-        <ScrollButton name="Project" />
-        <ScrollButton name="Team" />
-        <ScrollButton name="Papers" />
-        <ScrollButton name="Contact" />
-      </header>
-      <main>
-        <img className="logo" src={landing} alt="Brain-to-speech landing image" />
-        <h1>Brain2Speech</h1>
-        <h2>Project</h2>
-        <p>
-          The Brain2Speech project seeks to build and validate new methods for
-          advanced speech synthesis and control using neural activation-based
-          models and 3D biomechanical articulators.
-        </p>
-        <h2>Team</h2>
-        <div className="Bios">
-          {bios.map((bio, index) => (
-            <Bio key={`bio-${index}`} {...bio} />
-          ))}
+const Index = () => {
+  const entry = (reference) => (
+    <>
+      <div>
+        <div>{reference.entryTags.author.replace(/ and /g, "; ")}</div>
+        <div>
+          <strong>{reference.entryTags.title}</strong>
         </div>
+        <div style={{ color: "#999" }}>
+          {reference.entryTags.journal ||
+            reference.entryTags.booktitle ||
+            reference.entryTags.publisher}
+          {reference.entryTags.journal ||
+          reference.entryTags.booktitle ||
+          reference.entryTags.publisher
+            ? ", "
+            : ""}
+          {reference.entryTags.year}.{" "}
+          {`[${reference.entryType[0].toUpperCase()}${reference.entryType.slice(
+            1
+          )}]`}
+        </div>
+        <div style={{ fontSize: "0.83em" }}>
+          {reference.entryTags.doi ? (
+            <a href={`https://doi.org/${reference.entryTags.doi}`}>link</a>
+          ) : (
+            <strike>link</strike>
+          )}{" "}
+          / <strike>bibtex</strike>
+        </div>
+        <div></div>
+      </div>
+      <br />
+    </>
+  );
 
-        <h2>Papers</h2>
-        <p>...</p>
-        <h2>Contact</h2>
-        <p className="center">For press inquires reach us directly at ...</p>
-        <footer>
-          <div>Copyright © Brain2Speech 2021</div>
-          <div>
-            <a className="" href="">
-              License
-            </a>
+  return (
+    <>
+      {/*<div className="banner">
+        <img src={"/b2s.png"} alt="HCT banner image"></img>
+      </div>*/}
+      <main>
+        <header>
+          <img src={"/b2s.png"} alt="HCT banner image"></img>
+          <div className="column">
+            <h1>Brain2Speech</h1>
+            <h3>HCT Lab + ISRL Lab</h3>
+            <div className="optional">
+              Realizing state-of-the-art brain computer interfaces and 3D
+              biomechanical articulatory speech synthesis.
+            </div>
           </div>
-        </footer>
+        </header>
+        <hr />
+        <h2>People</h2>
+        <div className="wrapper">
+          {Object.entries(yaml.load(people)).map(([key, value]) => {
+            // console.log(key, value);
+            return (
+              <>
+                <div className="person-tile">
+                  <div className="photo">
+                    <img alt={key} src={"/" + value.image} />
+                  </div>
+                  <div className="info">
+                    <strong>{key}</strong>
+                    <div>{value.title}</div>
+                    <div style={{ fontSize: "0.83em" }}>
+                      <a href={`mailto:${value.email}`}>{value.email}</a>
+                    </div>
+                  </div>
+                </div>
+                <br />
+              </>
+            );
+          })}
+        </div>
+        <h2>Research</h2>
+        <div className="wrapper">
+          {Object.entries(yaml.load(research)).map(([key, value]) => {
+            // console.log(key, value);
+            return (
+              <>
+                <div className="research-tile">
+                  <div className="photo">
+                    <img alt={key} src={"/" + value.image} />
+                  </div>
+                  <div className="info">
+                    <h3>{key !== "null" ? key : null}</h3>
+                    <h4 className={key === "null" ? "bold" : ""}>
+                      {value.subtitle ? value.subtitle : null}
+                    </h4>
+                    <div>{value.description}</div>
+                  </div>
+                </div>
+                <br />
+              </>
+            );
+          })}
+        </div>
+        <h2>Contact</h2>
+        <div>
+          <strong>Human Communication Technologies Lab</strong>
+        </div>
+        <div>x427/x509, ICICS X-Wing</div>
+        <div>2366 Main Mall</div>
+        <div>Vancouver, BC, Canada</div>
+        <div>V6T 1Z4</div>
+        <br />
+        <div>Tel: +1 (604) 822-4583</div>
+        <div>
+          Website:{" "}
+          <a href="https://www.brain2speech.github.io">
+            brain2speech.github.io
+          </a>
+        </div>
+        <div>
+          Email: <a href="mailto:ssfels@ece.ubc.ca">ssfels at ece.ubc.ca</a>
+        </div>
+        <br />
+
+        <h2>Publications</h2>
+        <h3>2021</h3>
+        {bibtexParse
+          .toJSON(refs)
+          .filter(
+            (reference) =>
+              authors.some((a) => reference.entryTags.author.includes(a)) &&
+              reference.entryTags.year == "2021"
+          )
+          .map((reference) => entry(reference))}
+        <h3>2020</h3>
+        {bibtexParse
+          .toJSON(refs)
+          .filter(
+            (reference) =>
+              authors.some((a) => reference.entryTags.author.includes(a)) &&
+              reference.entryTags.year == "2020"
+          )
+          .map((reference) => entry(reference))}
+        <br />
+        <footer>Copyright &copy; Human Communication Technologies Lab.</footer>
       </main>
-    </div>
+    </>
   );
 };
 
-const Bio = ({ img, name, title, content }) => {
-  return (
-    <div className="Bio">
-      <img alt={`Photo of ${name}`} src={img} />
-      <div className="name">{name}</div>
-      <div className="title">{title}</div>
-      <div className="content">{content}</div>
-    </div>
-  );
-};
-
-const ScrollButton = ({ name }) => {
-  return (
-    <span
-      className="ScrollButton"
-      onClick={e => {
-        const headers = document.getElementsByTagName("h2");
-        for (let i = 0; i < headers.length; i++) {
-          if (headers[i].textContent === name) {
-            // console.log(name);
-            // console.log(headers[i].getBoundingClientRect());
-
-            // Compute top coordinate of header element
-            /*
-            let y = headers[i].getBoundingClientRect().top;
-            console.log(y);
-
-            // Compute top header margin
-            let style =
-              headers[i].currentStyle || window.getComputedStyle(headers[i]);
-            let marginTop = parseInt(style.marginTop);
-
-            const scrollTo = y - 64 - marginTop;
-            // window.scrollTo(0, scrollTo);
-            console.log(scrollTo);
-            */
-
-            headers[i].scrollIntoView(true);
-            break;
-          }
-        }
-      }}
-    >
-      {name}
-    </span>
-  );
-};
-
-ReactDOM.render(<Application />, document.getElementById("root"));
+ReactDOM.render(<Index />, document.getElementById("root"));
