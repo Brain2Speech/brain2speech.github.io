@@ -1,0 +1,23 @@
+[
+  {
+    "absPath": "/Users/ericeasthope/Desktop/brain2speech.github.io/dist/app.021b9df4b.js",
+    "browserPath": "/app.021b9df4b.js",
+    "relativePath": "app.021b9df4b.js",
+    "type": "js",
+    "webIndexed": true
+  },
+  {
+    "absPath": "/Users/ericeasthope/Desktop/brain2speech.github.io/dist/vendor.25904244.js",
+    "browserPath": "/vendor.25904244.js",
+    "relativePath": "vendor.25904244.js",
+    "type": "js",
+    "webIndexed": true
+  },
+  {
+    "absPath": "/Users/ericeasthope/Desktop/brain2speech.github.io/dist/styles/styles.06635af2d.css",
+    "browserPath": "/styles/styles.06635af2d.css",
+    "relativePath": "styles/styles.06635af2d.css",
+    "type": "css",
+    "webIndexed": true
+  }
+]
